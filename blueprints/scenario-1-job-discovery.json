@@ -1,0 +1,146 @@
+{
+  "name": "Indeed Job Scraper",
+  "flow": [
+    {
+      "id": 1,
+      "module": "apify:runActorNew",
+      "version": 1,
+      "parameters": {
+        "__IMTCONN__": 0
+      },
+      "mapper": {
+        "actorId": "RESELECT_APIFY_ACTOR",
+        "runSync": false,
+        "actor_search_type": "user",
+        "inputBodyRESELECT_APIFY_ACTOR": "{\n  \"country\": \"CA\",\n  \"followApplyRedirects\": false,\n  \"location\": \"Remote\",\n  \"maxItemsPerSearch\": 20,\n  \"parseCompanyDetails\": false,\n  \"position\": \"AI Automation Specialist\",\n  \"saveOnlyUniqueItems\": true\n}"
+      },
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0
+        },
+        "restore": {
+          "expect": {
+            "memory": {
+              "mode": "chose",
+              "label": "Empty"
+            },
+            "actorId": {
+              "label": "RESELECT IN MAKE"
+            },
+            "runSync": {
+              "mode": "chose"
+            },
+            "actor_search_type": {
+              "label": "Recently used Actors"
+            }
+          },
+          "parameters": {
+            "__IMTCONN__": {
+              "label": "RECONNECT IN MAKE"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "__IMTCONN__",
+            "type": "account:apify2,apify",
+            "label": "Connection",
+            "required": true
+          }
+        ],
+        "expect": [
+          {
+            "name": "actor_search_type",
+            "type": "select",
+            "label": "Search Actors from",
+            "required": true,
+            "validate": {
+              "enum": [
+                "user",
+                "store"
+              ]
+            }
+          },
+          {
+            "name": "runSync",
+            "type": "boolean",
+            "label": "Run synchronously",
+            "required": true
+          },
+          {
+            "name": "build",
+            "type": "text",
+            "label": "Build"
+          },
+          {
+            "name": "timeout",
+            "type": "uinteger",
+            "label": "Timeout"
+          },
+          {
+            "name": "memory",
+            "type": "select",
+            "label": "Memory",
+            "validate": {
+              "enum": [
+                128,
+                256,
+                512,
+                1024,
+                2048,
+                4096,
+                8192,
+                16384,
+                32768
+              ]
+            }
+          },
+          {
+            "name": "actorId",
+            "type": "select",
+            "label": "Actor",
+            "required": true
+          },
+          {
+            "name": "inputBodyhMvNSpz3JnHgl5jkh",
+            "type": "text",
+            "label": "Input JSON",
+            "required": true
+          },
+          {
+            "name": "maxTotalChargeUsd",
+            "type": "number",
+            "label": "Maximum cost per run"
+          },
+          {
+            "name": "maxItems",
+            "type": "hidden",
+            "label": "Maximum charged results"
+          }
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "instant": false,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "slots": null,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    },
+    "zone": "us2.make.com",
+    "notes": []
+  }
+}
